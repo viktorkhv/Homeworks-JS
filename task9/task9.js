@@ -24,12 +24,13 @@ function Cat(name) {
     Animal.apply(this, arguments);
     var animalFeed = this.feed;
     this.feed = function () {
-        animalFeed.call(self);
+        animalFeed();
         console.log('Кот доволен ^_^');
         return this;
     }
     this.stroke = function () {
         console.log('Гладим кота.');
+        return this;
     }
 }
 
