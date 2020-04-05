@@ -22,7 +22,7 @@ y.onkeyup = function () {
 button.addEventListener('click', buttonEvent);
 function buttonEvent() {
     destroyTable();
-   var table = document.createElement('table');
+    var table = document.createElement('table');
     if (valX && valY && !isNaN(valX) && Number.isInteger(valX) && valX >= 1 && valX <= 10) {
         if (valY && !isNaN(valY) && Number.isInteger(valY) && valY >= 1 && valY <= 10) {
             button.setAttribute('disabled',1);
@@ -42,12 +42,13 @@ function buttonEvent() {
         x.value = '';
         y.value = '';
     }
-    paintTab();
+    changeColors();
 
     document.querySelector('table').addEventListener('click', function () {
-        if
+
+        if (key == 1) {
             changeColors();
-        } else {
+        } else if (key == 2) {
             paintTab();
         }
     });
@@ -62,23 +63,25 @@ function destroyTable() {
 }
 
 function paintTab() {
+    key = 1;
+    var x, y;
     obj = document.querySelector('table');
     for (y = 0; y <obj.rows.length; y++) {
         for (x = 0; x <obj.rows[0].cells.length; x++) {
-
+            obj.rows[y].cells[x].className = "white";
             if((x + y) % 2 ) {
                 obj.rows[y].cells[x].className = "black";}}};
-
+    return key;
 }
+var key;
 function changeColors() {
     var x, y;
+    key = 2;
     obj = document.querySelector('table');
     for (y = 0; y <obj.rows.length; y++) {
         for (x = 0; x <obj.rows[0].cells.length; x++) {
             obj.rows[y].cells[x].className = "white";
             if(!((x + y) % 2) ) {
                 obj.rows[y].cells[x].className = "black";}}};
-
+    return key;
 }
-
-
