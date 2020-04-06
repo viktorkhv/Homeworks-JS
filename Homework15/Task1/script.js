@@ -26,7 +26,7 @@ secondPar.onclick = function(event) {
     if (localStorage.getItem(target.innerHTML)) {
         alert(localStorage.getItem(target.innerHTML));
     } else {
-        localStorage.setItem(target.innerHTML, JSON.stringify({path: target.getAttribute('href')}));
+        localStorage.setItem(target.innerHTML, JSON.stringify(target.getAttribute('href')));
         alert('Ссылка была сохранена!');
     }
 }
